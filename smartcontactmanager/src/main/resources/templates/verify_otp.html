@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Verify OTP Page</title>
+</head>
+
+<body>
+	<section>
+		<div id="login">
+
+			<div class="container">
+
+				<div id="login-row" class="row justify-content-center align-items-center">
+
+					<div id="login-column" class="col-md-6">
+
+						<div class="login-box col-md-12" style="height: 200px;">
+
+							<!--Verify otp form-->
+							<div class="alert alert-success mt-3" role="alert">
+								Otp sent successfully!!
+							</div>
+							
+							<!--message box-->
+							<div th:if="${session.msgg}" class="container">
+								
+								<div class="alert alert-danger my-2 text-center" role="alert">
+									<span th:text="${session.msgg}"></span>
+								</div>
+								
+							</div>
+
+							<form th:action="@{/verify-otp}" method="post">
+
+								<div class="form-group">
+
+									<input name="otp" required type="number" placeholder="Enter otp here"
+										class="form-control" />
+
+								</div>
+
+								<div class="container text-center">
+
+									<button class="btn btn-success mt-2">Verify OTP</button>
+
+								</div>
+
+							</form>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>
